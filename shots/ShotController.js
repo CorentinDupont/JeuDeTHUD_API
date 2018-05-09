@@ -1,4 +1,4 @@
-// ActionController.js
+// ShotController.js
 
 var express = require('express');
 var router = express.Router();
@@ -30,12 +30,25 @@ router.post('/', function (req, res) {
 // GETS A SINGLE SHOT FROM THE DATABASE
 router.get('/:id', function (req, res) {
 
-    Shot.findById(req.params.id, function (err, shot) {
+    Shot.find({ 'id_shot': req.params.id }, function (err, shot) {
         if (err) return res.status(500).send("There was a problem finding the shot.");
         if (!shot) return res.status(404).send("No shot found.");
         res.status(200).send(shot);
     });
 
+});
+
+
+// GETS A SHOT WITH GAME ID AND SHOT ID
+router.get('/:id_game/:id_shot', function (req, res) {
+    Shot.
+    find({ id_shot: req.params.id_shot }).
+    where("id_game").equals(req.params.id_game).
+    exec(function (err, shot) {
+        if (err) return res.status(500).send("There was a problem finding the shot.");
+        if (!shot) return res.status(404).send("No shot found.");
+        res.status(200).send(shot);
+    });
 });
 
 // DELETES A SHOT FROM THE DATABASE
