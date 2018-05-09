@@ -26,7 +26,7 @@ router.post('/', function (req, res) {
 // GETS A SINGLE GAME FROM THE DATABASE
 router.get('/:id', function (req, res) {
 
-    Game.find({ 'id_game': req.params.id }, function (err, game) {
+    Game.findById(req.params.id, function (err, game) {
         if (err) return res.status(500).send("There was a problem finding the game.");
         if (!game) return res.status(404).send("No game found.");
         res.status(200).send(game);
