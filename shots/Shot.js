@@ -1,6 +1,6 @@
-// Action.js
+// Shot.js
 var mongoose = require('mongoose');  
-var ActionSchema = new mongoose.Schema({ 
+var ShotSchema = new mongoose.Schema({ 
     pawn : String,
     slot_1: String,
     slot_2: String,
@@ -9,6 +9,6 @@ var ActionSchema = new mongoose.Schema({
     id_shot : Number,
     surrender : Boolean
 });
-mongoose.model('Action', ActionSchema);
+mongoose.model('Shot', ShotSchema);
 
-module.exports = mongoose.model('Action');
+module.exports = mongoose.model('Shot');

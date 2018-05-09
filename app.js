@@ -3,7 +3,7 @@ var express = require('express');
 var app = express();
 var db = require('./db');
 
-var ActionController = require('./actions/ActionController');
-app.use('/actions', ActionController);
+var ShotController = require('./shots/ShotController');
+app.use('/shots', ShotController);
 
 module.exports = app;
