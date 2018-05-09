@@ -1,0 +1,16 @@
+{
+  "name": "api_thud",
+  "version": "1.0.0",
+  "description": "api to get the actions from other games",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Corentin DUPONT",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "mongoose": "^5.0.17"
+  }
+}
