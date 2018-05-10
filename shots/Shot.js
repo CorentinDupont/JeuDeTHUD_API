@@ -5,8 +5,8 @@ var ShotSchema = new mongoose.Schema({
     slot_1: String,
     slot_2: String,
     shot_eat : [String],
-    id_game : Number,
-    id_shot : Number,
+    id_game : String,
+    id_shot : String,
     surrender : Boolean
 });
 
