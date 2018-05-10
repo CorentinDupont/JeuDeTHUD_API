@@ -9,6 +9,14 @@ var ShotSchema = new mongoose.Schema({
     id_shot : Number,
     surrender : Boolean
 });
+
+ShotSchema.set('toObject', {
+    transform: function (doc, ret) {
+      ret.id_shot = ret._id
+      delete ret._id
+      delete ret.__v
+    }
+  });
 mongoose.model('Shot', ShotSchema);
 
 module.exports = mongoose.model('Shot');
