@@ -23,6 +23,19 @@ router.post('/', function (req, res) {
 
 });
 
+// GETS ALL WAITING GAMES (no listener)
+router.get('/waitinggames/', function (req, res) {
+    Game.
+    find({}).
+    where("listener").equals("").
+    exec(function (err, game) {
+        if (err) return res.status(500).send("There was a problem finding the games.");
+        if (!game) return res.status(404).send("No waiting games found.");
+        res.status(200).send(game);
+    });
+});
+
+
 // GETS A SINGLE GAME FROM THE DATABASE
 router.get('/:id', function (req, res) {
 
@@ -62,5 +75,6 @@ router.get('/', function (req, res) {
     });
 
 });
+
 
 module.exports = router;
