@@ -12,9 +12,9 @@ var Game = require('./Game');
 router.post('/', function (req, res) {
 
     Game.create({
-        starter: req.params.starter,
-        listener: req.params.listener,
-        id_game: req.params.id_game
+        starter : req.body.starter,
+        listener : req.body.listener,
+        id_game : req.body.id_game
         }, 
         function (err, game) {
             if (err) return res.status(500).send("There was a problem adding the information to the database.");
