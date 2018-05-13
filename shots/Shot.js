@@ -6,13 +6,12 @@ var ShotSchema = new mongoose.Schema({
     slot_2: String,
     shot_eat : [String],
     id_game : String,
-    id_shot : String,
+    id_shot : Number,
     surrender : Boolean
 });
 
 ShotSchema.set('toObject', {
     transform: function (doc, ret) {
-      ret.id_shot = ret._id
       delete ret._id
       delete ret.__v
     }
